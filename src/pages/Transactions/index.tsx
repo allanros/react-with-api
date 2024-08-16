@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { SearchForm } from './components/SearchForm'
@@ -6,8 +7,15 @@ import {
   TransactionsContainer,
   TransactionTable,
 } from './styles'
+import {
+  Transaction,
+  TransactionsContext,
+} from '../../contexts/TransactionContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionsContext)
+
   return (
     <div>
       <Header />
@@ -18,22 +26,23 @@ export function Transactions() {
 
         <TransactionTable>
           <tbody>
-            <tr>
-              <td width="50%">Desenvolvimento de site</td>
-              <td>
-                <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
-              </td>
-              <td>Venda</td>
-              <td>12/02/2023</td>
-            </tr>
-            <tr>
-              <td width="50%">Comida</td>
-              <td>
-                <PriceHighlight variant="outcome">- R$ 100,00</PriceHighlight>
-              </td>
-              <td>Alimentação</td>
-              <td>02/02/2023</td>
-            </tr>
+            {transactions.map((transaction: Transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHighlight variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(transaction.price)}
+                    </PriceHighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </TransactionTable>
       </TransactionsContainer>

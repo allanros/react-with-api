@@ -1,0 +1,52 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2024-08-09T16:05:08.026Z"
+    },
+    {
+      "id": 2,
+      "description": "Comida",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 79,
+      "createdAt": "2024-08-09T16:00:08.026Z"
+    },
+    {
+      "id": 3,
+      "description": "Tigrinho",
+      "type": "income",
+      "category": "Jogos",
+      "price": 15,
+      "createdAt": "2024-08-09T15:00:08.026Z"
+    },
+    {
+      "id": 4,
+      "description": "Tigrinho",
+      "type": "outcome",
+      "category": "Jogos",
+      "price": 500,
+      "createdAt": "2024-08-09T18:00:08.026Z"
+    },
+    {
+      "description": "teste",
+      "price": 500,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2024-08-15T14:39:58.995Z",
+      "id": 5
+    },
+    {
+      "description": "Lasanha",
+      "price": 50,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2024-08-15T15:36:57.162Z",
+      "id": 6
+    }
+  ]
+}
